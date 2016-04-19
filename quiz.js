@@ -12,7 +12,7 @@ var button = document.getElementById('run');
 var enterKeyNum = document.getElementById('number');
 var enterKeyChar = document.getElementById('char');
 
-// Add event listeners to look for the click or the return key and run the function named tree().
+// Add event listeners to look for the click or keyup and run the function named tree() or the key verifier keycheck().
 // Create a function that checks for the return key and runs tree() if return is pressed.
 
 button.addEventListener("click", tree);
@@ -25,8 +25,8 @@ function keycheck(keyPress) {
 	}
 }
 
-// Create the function "tree" with the parameter "event" (looking for the argument "click"
-// or "keyup" from the event listener), and prevent the button click from refreshing the page.
+// Create the function tree() with the parameter "event".
+// Prevent the button click from refreshing the page.
 
 function tree(event) {
 	if (event === "click") {
@@ -38,7 +38,8 @@ function tree(event) {
 	treeSpecs.height = document.getElementById('number').value;
 	treeSpecs.char = document.getElementById('char').value;
 
-// Define an array to hold the characters that build the tree; pull in the value treeSpecs.char to begin.
+// Define an array to hold the characters that build the tree.
+// Pull in the value treeSpecs.char to begin.
 
 	var leaves = [treeSpecs.char];
 
