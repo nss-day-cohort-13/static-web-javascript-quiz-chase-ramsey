@@ -7,17 +7,31 @@ var treeSpecs = {
 }
 
 // Create a variable "button" that references the DOM element with the button to run the program;
-// add an event listener to look for the click and run the function named "tree".
 
 var button = document.getElementById('run');
+var enterKeyNum = document.getElementById('number');
+var enterKeyChar = document.getElementById('char');
+
+// Add event listeners to look for the click or the return key and run the function named tree().
+// Create a function that checks for the return key and runs tree() if return is pressed.
+
 button.addEventListener("click", tree);
+enterKeyNum.addEventListener("keyup", keycheck);
+enterKeyChar.addEventListener("keyup", keycheck);
 
+function keycheck(keyPress) {
+	if (keyPress.which === 13) {
+		tree();
+	}
+}
 
-// Create the function "tree" with the parameter "clickEvent" (looking for the argument "click"
-// from the event listener), and prevent the button click from refreshing the page.
+// Create the function "tree" with the parameter "event" (looking for the argument "click"
+// or "keyup" from the event listener), and prevent the button click from refreshing the page.
 
-function tree(clickEvent) {
-	clickEvent.preventDefault();
+function tree(event) {
+	if (event === "click") {
+		event.preventDefault();
+	}
 
 // Pull in values for height and character from the HTML form.
 
@@ -28,10 +42,17 @@ function tree(clickEvent) {
 
 	var leaves = [treeSpecs.char];
 
-// Create a condition that will stop the program from moving forward if one or both of the form fields is empty.
+// Create conditions that will stop the program from moving forward if
+	// a. one or both of the form fields is empty
+	// b. the height field is NaN
 
-	if (treeSpecs.width === "" || treeSpecs.char === "") {
+	if (treeSpecs.height === "" || treeSpecs.char === "") {
 		alert('Please enter a value in both form fields.');
+		return;
+	}
+
+	if ( isNaN(treeSpecs.height) === true ) {
+		alert('Please enter a number greater than 0 for the height value.');
 		return;
 	}
 
