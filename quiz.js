@@ -6,7 +6,8 @@ var treeSpecs = {
 	char: ""
 }
 
-// Create a variable "button" that references the DOM element with the button to run the program;
+// Create a variable "button" that references the DOM element with the button to run the program.
+// Create variables to hold the DOM elements of both text input fields.
 
 var button = document.getElementById('run');
 var enterKeyNum = document.getElementById('number');
