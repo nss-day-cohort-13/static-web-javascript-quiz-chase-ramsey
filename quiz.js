@@ -31,7 +31,7 @@ function tree(clickEvent) {
 // Create a condition that will stop the program from moving forward if one or both of the form fields is empty.
 
 	if (treeSpecs.width === "" || treeSpecs.char === "") {
-		alert('Please enter a value for the height.');
+		alert('Please enter a value in both form fields.');
 		return;
 	}
 
