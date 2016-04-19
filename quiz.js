@@ -22,17 +22,15 @@ enterKeyChar.addEventListener("keyup", keycheck);
 
 function keycheck(keyPress) {
 	if (keyPress.which === 13) {
-		tree();
+		tree(event);
 	}
 }
 
 // Create the function tree() with the parameter "event".
-// Prevent the button click from refreshing the page.
+// Prevent the event from refreshing the page.
 
 function tree(event) {
-	if (event === "click") {
 		event.preventDefault();
-	}
 
 // Pull in values for height and character from the HTML form.
 
@@ -54,7 +52,7 @@ function tree(event) {
 	}
 
 	if ( isNaN(treeSpecs.height) === true ) {
-		alert('Please enter a number greater than 0 for the height value.');
+		alert('Please enter a number for the height value.');
 		return;
 	}
 
